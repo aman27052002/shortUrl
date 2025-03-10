@@ -1,12 +1,13 @@
-const mongoose = require('mongoose')
+const { timeStamp } = require('console')
+const mongoose  = require('mongoose')
 
 const urlSchema = new mongoose.Schema({
     shortId:{
         type:String,
         required:true,
-        unique:true,
+        unique:true
     },
-    redirectURL:{
+    redirectUrl:{
         type:String,
         required:true,
     },
@@ -15,9 +16,8 @@ const urlSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:"users"
     }
-},
-{timestamps:true}
-)
+
+},{timestamps:true})
 
 const URL = mongoose.model("url",urlSchema)
 
