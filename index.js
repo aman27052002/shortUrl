@@ -1,4 +1,5 @@
 require('dotenv').config();
+const cors = require('cors')
 const express = require('express');
 const URL = require('./models/url');
 const {restrictToLoggedInUserOnly,checkAuth} = require('./middlewares/auth')
@@ -12,7 +13,7 @@ const urlRoute = require('./routes/url');
 const staticRoute = require('./routes/staticRouter')
 const userRoute = require('./routes/user')
 
-
+app.use(cors())
 app.set('view engine','ejs')
 app.set('views',path.resolve("./views"))
 
